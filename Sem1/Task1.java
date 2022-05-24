@@ -21,31 +21,61 @@ public class Task1 {
         System.out.println(recPow(3, 0));
         System.out.println(recPow(0, 5));
         System.out.println(recPow(1, 5));
+        System.out.println("======================");
+        System.out.println(iterPow(2, 3));
+        System.out.println(iterPow(2, -2));
+        System.out.println(iterPow(3, 0));
+        System.out.println(iterPow(0, 5));
+        System.out.println(iterPow(1, 5));
     }
 
     public static double degreePow(double a, int b) {
-        if (b == 0)
-            return 1;
-        if (a == 0 || a == 1)
-            return a;
+    if (b == 0)
+    return 1;
+    if (a == 0 || a == 1)
+    return a;
+
+    if (b < 0) {
+    b = -b;
+    a = 1 / a;
+    }
+    double res = 1;
+    for (int i = 0; i < b; i++) {
+    res = a * res;
+    }
+    return res;
+    }
+
+    public static double recPow(double a, int b) {
+    if (b == 0)
+    return 1;
+    if (b < 0)
+    return recPow(1 / a, -b);
+
+    double res = recPow(a, b / 2);
+    if (b % 2 == 0)
+    return res * res;
+    else
+    return res * res * a;
+    }
+
+    public static double iterPow(double a, int b) {
+        if (b == 0) return 1;
+        if (a == 0 || a == 1) return a;
 
         if (b < 0) {
             b = -b;
             a = 1 / a;
         }
-        double res = 1;
-        for (int i = 0; i < b; i++) {
-            res = a * res;
+            
+        double result = 1;
+        while (b > 0) {
+            if (b % 2 == 1) {
+                result *= a;
+            }
+            b = b / 2;
+            a *= a;
         }
-        return res;
-    }
-
-    public static double recPow(double a, int b) {
-        if (b == 0) return 1;
-        if (b < 0) return recPow(1/a, -b);
-        
-        double res = recPow(a, b/2);
-        if (b % 2 == 0) return res * res;
-        else return res*res*a;
+        return result;
     }
 }
