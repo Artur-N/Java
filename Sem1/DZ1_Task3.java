@@ -2,7 +2,7 @@ package Sem1;
 
 public class DZ1_Task3 {
     public static void main(String[] args) {
-        System.out.println(subtractProductAndSum(1234));
+        System.out.println(subtractProductAndSum(12345));
     }
 
     public static int subtractProductAndSum(int n) {
@@ -14,7 +14,6 @@ public class DZ1_Task3 {
             mult = mult * a;
             sum = sum + a;
         }
-        int res = mult - sum;
-        return res;
+        return mult - sum;
     }
 }
