@@ -23,7 +23,7 @@ public class Les1_Task2 {
             }
             count++;
         }
-        res = res + t + count;
-        return res;
+        // res = res + t + count;
+        return res + t + count;
     }
 }
